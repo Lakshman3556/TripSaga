@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 from app.core.config import settings
 
 def get_llm(temperature: float = 0.2, json_mode: bool = False):

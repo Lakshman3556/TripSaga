@@ -23,6 +23,39 @@
             "description": "A historic ruined fort and capital of the Qutb Shahi dynasty. Famous for its acoustic systems, water supply engineering, and the dramatic light and sound show in the evening."
         },
         {
+            "name": "Birla Mandir",
+            "category": "attraction",
+            "rating": 4.6,
+            "interest_tags": [
+                "temples",
+                "spiritual",
+                "viewpoint"
+            ],
+            "description": "A beautiful Hindu temple built entirely out of white marble, situated on a hilltop overlooking the scenic Hussain Sagar Lake. Offers panoramic views of the twin cities."
+        },
+        {
+            "name": "Salar Jung Museum",
+            "category": "attraction",
+            "rating": 4.5,
+            "interest_tags": [
+                "history",
+                "art",
+                "museum"
+            ],
+            "description": "One of the three National Museums of India, housing a massive collection of art, sculptures, paintings, carvings, textiles, and the famous Veiled Rebecca marble statue."
+        },
+        {
+            "name": "Chowmahalla Palace",
+            "category": "attraction",
+            "rating": 4.7,
+            "interest_tags": [
+                "history",
+                "palace",
+                "heritage"
+            ],
+            "description": "A grand palace complex belonging to the Nizams of Hyderabad, featuring elegant Durbar halls, courtyards, fountains, and a unique collection of vintage royal cars."
+        },
+        {
             "name": "Bawarchi Restaurant",
             "category": "restaurant",
             "rating": 4.5,
@@ -34,6 +67,28 @@
             "description": "World-famous legendary outlet at RTC X Roads, renowned for serving the most authentic, aromatic, and spiced Hyderabadi Mutton and Chicken Biryani."
         },
         {
+            "name": "Chutneys",
+            "category": "restaurant",
+            "rating": 4.4,
+            "interest_tags": [
+                "vegetarian",
+                "breakfast",
+                "south-indian"
+            ],
+            "description": "Popular family dining chain famous for its multi-variety chutneys (like coconut, ginger, and tomato) served alongside fluffy Guntur idlis and Babai Hotel dosas."
+        },
+        {
+            "name": "Paradise Biryani",
+            "category": "restaurant",
+            "rating": 4.2,
+            "interest_tags": [
+                "biryani",
+                "non-vegetarian",
+                "local-food"
+            ],
+            "description": "Secunderabad's iconic multi-level landmark, famous worldwide for popularizing Hyderabadi Dum Biryani with tender meat, premium basmati rice, and subtle spices."
+        },
+        {
             "name": "Taj Falaknuma Palace",
             "category": "hotel",
             "rating": 4.9,
@@ -43,6 +98,28 @@
                 "heritage"
             ],
             "description": "A spectacular luxury heritage hotel situated on a hill, built in the shape of a scorpion. Formerly the palace of the Nizam, offering royal dining and luxury suites."
+        },
+        {
+            "name": "ITC Kohenur",
+            "category": "hotel",
+            "rating": 4.8,
+            "interest_tags": [
+                "luxury",
+                "modern",
+                "business"
+            ],
+            "description": "A high-end luxury business hotel located in the heart of HITEC City, offering stunning views of Durgam Cheruvu Lake, fine dining options, and eco-friendly architecture."
+        },
+        {
+            "name": "Katriya Hotel & Towers",
+            "category": "hotel",
+            "rating": 4.1,
+            "interest_tags": [
+                "midrange",
+                "modern",
+                "business"
+            ],
+            "description": "A comfortable midrange hotel situated in Raj Bhavan Road, offering spacious rooms, multi-cuisine restaurants, and easy access to the central shopping districts."
         }
     ],
     "Bengaluru": [
@@ -69,6 +146,39 @@
             "description": "A majestic royal palace owned by the Mysore Royal family, built in Windsor Castle style with wooden carvings, towers, and historical galleries."
         },
         {
+            "name": "Tipu Sultan's Summer Palace",
+            "category": "attraction",
+            "rating": 4.2,
+            "interest_tags": [
+                "history",
+                "architecture",
+                "palace"
+            ],
+            "description": "An elegant 18th-century summer residence built entirely of teak wood, featuring beautiful pillars, arches, balconies, and a museum detailing Tipu Sultan's life."
+        },
+        {
+            "name": "Cubbon Park",
+            "category": "attraction",
+            "rating": 4.6,
+            "interest_tags": [
+                "nature",
+                "park",
+                "explore"
+            ],
+            "description": "A vast, lush green park in the middle of Bengaluru's central business district, home to heritage buildings, walking paths, and thousands of indigenous trees."
+        },
+        {
+            "name": "Nandi Hills",
+            "category": "attraction",
+            "rating": 4.5,
+            "interest_tags": [
+                "nature",
+                "viewpoint",
+                "explore"
+            ],
+            "description": "A historic fortress and popular hill station near Bengaluru, famous for its breathtaking sunrise views above low-hanging clouds and Tipu's Drop cliff."
+        },
+        {
             "name": "MTR (Mavalli Tiffin Room)",
             "category": "restaurant",
             "rating": 4.6,
@@ -80,6 +190,28 @@
             "description": "A legendary historic eatery near Lalbagh, famous for inventing the Rava Idli and serving traditional ghee-laden Masala Dosas and aromatic filter coffee."
         },
         {
+            "name": "Vidyarthi Bhavan",
+            "category": "restaurant",
+            "rating": 4.5,
+            "interest_tags": [
+                "vegetarian",
+                "breakfast",
+                "south-indian"
+            ],
+            "description": "A famous heritage restaurant in Gandhi Bazaar, iconic for its thick, crispy, golden-brown Masala Dosas served with watery coconut chutney since 1943."
+        },
+        {
+            "name": "Toit Brewpub",
+            "category": "restaurant",
+            "rating": 4.5,
+            "interest_tags": [
+                "modern-food",
+                "brewery",
+                "continental"
+            ],
+            "description": "A popular microbrewery in Indiranagar, offering fresh craft beers, wood-fired pizzas, pub food, and a vibrant, energetic atmosphere."
+        },
+        {
             "name": "The Leela Palace Bengaluru",
             "category": "hotel",
             "rating": 4.8,
@@ -89,6 +221,28 @@
                 "business"
             ],
             "description": "A grand luxury hotel inspired by the Royal Palace of Mysore, set in lush gardens, featuring ornate ceilings, high-end fine dining, and deluxe rooms."
+        },
+        {
+            "name": "Taj West End",
+            "category": "hotel",
+            "rating": 4.8,
+            "interest_tags": [
+                "luxury",
+                "heritage",
+                "nature"
+            ],
+            "description": "A unique heritage hotel set within 20 acres of lush gardens, dating back to 1887. Offers colonial-style architecture, heritage walks, and award-winning restaurants."
+        },
+        {
+            "name": "Ibis Bengaluru City Centre",
+            "category": "hotel",
+            "rating": 4.1,
+            "interest_tags": [
+                "midrange",
+                "modern",
+                "business"
+            ],
+            "description": "A modern and clean midrange business hotel located near Cubbon Park, offering cozy rooms, dynamic breakfast spreads, and a rooftop bar."
         }
     ],
     "Madurai": [
@@ -115,6 +269,39 @@
             "description": "A 17th-century palace built by King Thirumalai Nayak, featuring massive white pillars, circular arches, and an evening sound and light show displaying royal history."
         },
         {
+            "name": "Alagar Koyil",
+            "category": "attraction",
+            "rating": 4.5,
+            "interest_tags": [
+                "temples",
+                "nature",
+                "spiritual"
+            ],
+            "description": "A historic temple dedicated to Lord Vishnu, located on a scenic green hill about 20 km from Madurai. Famous for its detailed stone carvings and natural springs."
+        },
+        {
+            "name": "Gandhi Memorial Museum",
+            "category": "attraction",
+            "rating": 4.3,
+            "interest_tags": [
+                "history",
+                "museum",
+                "education"
+            ],
+            "description": "A peaceful memorial museum established in a historic palace, displaying items and photographs illustrating the life of Mahatma Gandhi, including his blood-stained dhoti."
+        },
+        {
+            "name": "Samalar Hills (Jain Caves)",
+            "category": "attraction",
+            "rating": 4.2,
+            "interest_tags": [
+                "history",
+                "nature",
+                "explore"
+            ],
+            "description": "A scenic rocky hill complex featuring ancient 2,000-year-old Jain rock-cut beds, stone inscriptions, sculptures, and a panoramic view of the surrounding countryside."
+        },
+        {
             "name": "Murugan Idli Shop",
             "category": "restaurant",
             "rating": 4.5,
@@ -124,6 +311,61 @@
                 "local-food"
             ],
             "description": "Famous local dining spot known for its soft, fluffy idlis, flavorful chutneys, spicy podi, and traditional sweet Jigarthanda drink."
+        },
+        {
+            "name": "Amma Mess",
+            "category": "restaurant",
+            "rating": 4.3,
+            "interest_tags": [
+                "non-vegetarian",
+                "local-food",
+                "spicy"
+            ],
+            "description": "A highly acclaimed local restaurant serving spicy and flavorful traditional Madurai non-vegetarian specialties like Bone Marrow Omelette and Mutton Kola Urundai."
+        },
+        {
+            "name": "Konar Mess",
+            "category": "restaurant",
+            "rating": 4.2,
+            "interest_tags": [
+                "non-vegetarian",
+                "local-food",
+                "street-food"
+            ],
+            "description": "A heritage street food style restaurant, famous for introducing the 'Kari Dosa' (thick rice pancake topped with a layer of minced mutton and egg scramble)."
+        },
+        {
+            "name": "Heritage Madurai",
+            "category": "hotel",
+            "rating": 4.7,
+            "interest_tags": [
+                "luxury",
+                "heritage",
+                "resort"
+            ],
+            "description": "A luxury heritage resort designed by famous architect Geoffrey Bawa, featuring traditional pillared corridors, a temple-tank swimming pool, and heritage villas."
+        },
+        {
+            "name": "Courtyard by Marriott Madurai",
+            "category": "hotel",
+            "rating": 4.5,
+            "interest_tags": [
+                "midrange",
+                "modern",
+                "business"
+            ],
+            "description": "A contemporary midrange hotel offering modern rooms, fine dining restaurants, and premium amenities close to the city center and Meenakshi Temple."
+        },
+        {
+            "name": "Hotel Supreme",
+            "category": "hotel",
+            "rating": 3.9,
+            "interest_tags": [
+                "budget",
+                "roof-top",
+                "family"
+            ],
+            "description": "A budget-friendly family hotel in Madurai, famous for its rooftop restaurant 'Surya' which offers wonderful direct views of the Meenakshi Temple towers."
         }
     ]
 }

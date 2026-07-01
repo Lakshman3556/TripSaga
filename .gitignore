@@ -150,3 +150,7 @@ Thumbs.db
 # IDEs
 .vscode/
 .idea/
+
+# Local databases and vector stores
+*.db
+backend/data/chroma_store/
