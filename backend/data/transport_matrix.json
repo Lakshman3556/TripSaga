@@ -1,0 +1,1083 @@
+{
+    "distances": [
+        {
+            "origin": "Bengaluru",
+            "destination": "Mysore",
+            "mode": "train",
+            "duration_hours": 3.0,
+            "cost_inr": 150
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Mysore",
+            "mode": "car",
+            "duration_hours": 3.5,
+            "cost_inr": 2500
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Mysore",
+            "mode": "bus",
+            "duration_hours": 4.0,
+            "cost_inr": 350
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Coorg",
+            "mode": "bus",
+            "duration_hours": 6.0,
+            "cost_inr": 600
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Coorg",
+            "mode": "car",
+            "duration_hours": 5.5,
+            "cost_inr": 4500
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Ooty",
+            "mode": "bus",
+            "duration_hours": 7.0,
+            "cost_inr": 700
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Ooty",
+            "mode": "car",
+            "duration_hours": 6.5,
+            "cost_inr": 5000
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Hampi",
+            "mode": "train",
+            "duration_hours": 8.0,
+            "cost_inr": 400
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Hampi",
+            "mode": "car",
+            "duration_hours": 7.0,
+            "cost_inr": 6000
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Chikmagalur",
+            "mode": "bus",
+            "duration_hours": 5.5,
+            "cost_inr": 500
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Chikmagalur",
+            "mode": "car",
+            "duration_hours": 5.0,
+            "cost_inr": 4000
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Gokarna",
+            "mode": "train",
+            "duration_hours": 9.5,
+            "cost_inr": 450
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Gokarna",
+            "mode": "bus",
+            "duration_hours": 10.0,
+            "cost_inr": 900
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Mangalore",
+            "mode": "train",
+            "duration_hours": 9.0,
+            "cost_inr": 350
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Udupi",
+            "mode": "bus",
+            "duration_hours": 8.5,
+            "cost_inr": 800
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Kabini",
+            "mode": "car",
+            "duration_hours": 5.0,
+            "cost_inr": 4500
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Belur",
+            "mode": "bus",
+            "duration_hours": 4.5,
+            "cost_inr": 350
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Lepakshi",
+            "mode": "car",
+            "duration_hours": 2.0,
+            "cost_inr": 2000
+        },
+        {
+            "origin": "Bengaluru",
+            "destination": "Horsley Hills",
+            "mode": "car",
+            "duration_hours": 3.5,
+            "cost_inr": 3200
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Pondicherry",
+            "mode": "bus",
+            "duration_hours": 3.5,
+            "cost_inr": 250
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Pondicherry",
+            "mode": "car",
+            "duration_hours": 3.0,
+            "cost_inr": 3000
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Madurai",
+            "mode": "train",
+            "duration_hours": 6.0,
+            "cost_inr": 350
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Madurai",
+            "mode": "bus",
+            "duration_hours": 8.0,
+            "cost_inr": 750
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Madurai",
+            "mode": "flight",
+            "duration_hours": 1.0,
+            "cost_inr": 3500
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Tirupati",
+            "mode": "bus",
+            "duration_hours": 4.0,
+            "cost_inr": 250
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Tirupati",
+            "mode": "car",
+            "duration_hours": 3.5,
+            "cost_inr": 2500
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Mahabalipuram",
+            "mode": "car",
+            "duration_hours": 1.5,
+            "cost_inr": 1500
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Kanchipuram",
+            "mode": "bus",
+            "duration_hours": 2.0,
+            "cost_inr": 120
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Trichy",
+            "mode": "train",
+            "duration_hours": 5.0,
+            "cost_inr": 300
+        },
+        {
+            "origin": "Chennai",
+            "destination": "Vellore",
+            "mode": "bus",
+            "duration_hours": 3.0,
+            "cost_inr": 200
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Munnar",
+            "mode": "bus",
+            "duration_hours": 4.5,
+            "cost_inr": 200
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Munnar",
+            "mode": "car",
+            "duration_hours": 3.5,
+            "cost_inr": 3000
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Alleppey",
+            "mode": "train",
+            "duration_hours": 1.5,
+            "cost_inr": 100
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Alleppey",
+            "mode": "car",
+            "duration_hours": 1.5,
+            "cost_inr": 1500
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Wayanad",
+            "mode": "bus",
+            "duration_hours": 7.0,
+            "cost_inr": 500
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Thekkady",
+            "mode": "car",
+            "duration_hours": 4.0,
+            "cost_inr": 3200
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Kumarakom",
+            "mode": "car",
+            "duration_hours": 2.0,
+            "cost_inr": 1800
+        },
+        {
+            "origin": "Kochi",
+            "destination": "Athirappilly",
+            "mode": "car",
+            "duration_hours": 2.0,
+            "cost_inr": 1600
+        },
+        {
+            "origin": "Thiruvananthapuram",
+            "destination": "Varkala",
+            "mode": "train",
+            "duration_hours": 1.0,
+            "cost_inr": 80
+        },
+        {
+            "origin": "Thiruvananthapuram",
+            "destination": "Varkala",
+            "mode": "car",
+            "duration_hours": 1.2,
+            "cost_inr": 1200
+        },
+        {
+            "origin": "Thiruvananthapuram",
+            "destination": "Kanyakumari",
+            "mode": "train",
+            "duration_hours": 2.5,
+            "cost_inr": 120
+        },
+        {
+            "origin": "Thiruvananthapuram",
+            "destination": "Kanyakumari",
+            "mode": "car",
+            "duration_hours": 2.5,
+            "cost_inr": 2200
+        },
+        {
+            "origin": "Thiruvananthapuram",
+            "destination": "Kovalam",
+            "mode": "car",
+            "duration_hours": 0.5,
+            "cost_inr": 600
+        },
+        {
+            "origin": "Madurai",
+            "destination": "Rameshwaram",
+            "mode": "train",
+            "duration_hours": 3.5,
+            "cost_inr": 150
+        },
+        {
+            "origin": "Madurai",
+            "destination": "Rameshwaram",
+            "mode": "car",
+            "duration_hours": 3.0,
+            "cost_inr": 2800
+        },
+        {
+            "origin": "Madurai",
+            "destination": "Kodaikanal",
+            "mode": "bus",
+            "duration_hours": 4.0,
+            "cost_inr": 250
+        },
+        {
+            "origin": "Madurai",
+            "destination": "Kodaikanal",
+            "mode": "car",
+            "duration_hours": 3.0,
+            "cost_inr": 3000
+        },
+        {
+            "origin": "Madurai",
+            "destination": "Tanjore",
+            "mode": "train",
+            "duration_hours": 3.5,
+            "cost_inr": 180
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Warangal",
+            "mode": "train",
+            "duration_hours": 2.5,
+            "cost_inr": 100
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Warangal",
+            "mode": "car",
+            "duration_hours": 3.0,
+            "cost_inr": 2500
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Nagarjuna Sagar",
+            "mode": "car",
+            "duration_hours": 3.5,
+            "cost_inr": 3000
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Bhadrachalam",
+            "mode": "bus",
+            "duration_hours": 8.0,
+            "cost_inr": 450
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Bhadrachalam",
+            "mode": "car",
+            "duration_hours": 7.0,
+            "cost_inr": 6500
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Nizamabad",
+            "mode": "bus",
+            "duration_hours": 4.0,
+            "cost_inr": 300
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Karimnagar",
+            "mode": "bus",
+            "duration_hours": 3.5,
+            "cost_inr": 250
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Khammam",
+            "mode": "train",
+            "duration_hours": 4.0,
+            "cost_inr": 180
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Nalgonda",
+            "mode": "bus",
+            "duration_hours": 2.5,
+            "cost_inr": 180
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Mahabubnagar",
+            "mode": "train",
+            "duration_hours": 2.0,
+            "cost_inr": 100
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Adilabad",
+            "mode": "bus",
+            "duration_hours": 7.0,
+            "cost_inr": 550
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Medak",
+            "mode": "car",
+            "duration_hours": 2.0,
+            "cost_inr": 1800
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Yadadri",
+            "mode": "car",
+            "duration_hours": 1.5,
+            "cost_inr": 1200
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Vemulawada",
+            "mode": "bus",
+            "duration_hours": 3.5,
+            "cost_inr": 250
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Alampur",
+            "mode": "car",
+            "duration_hours": 4.0,
+            "cost_inr": 3500
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Bengaluru",
+            "mode": "flight",
+            "duration_hours": 1.0,
+            "cost_inr": 3500
+        },
+        {
+            "origin": "Hyderabad",
+            "destination": "Bengaluru",
+            "mode": "train",
+            "duration_hours": 11.0,
+            "cost_inr": 600
+        },
+        {
+            "origin": "Vijayawada",
+            "destination": "Amaravati",
+            "mode": "car",
+            "duration_hours": 1.0,
+            "cost_inr": 800
+        },
+        {
+            "origin": "Vijayawada",
+            "destination": "Guntur",
+            "mode": "bus",
+            "duration_hours": 1.0,
+            "cost_inr": 80
+        },
+        {
+            "origin": "Vijayawada",
+            "destination": "Srisailam",
+            "mode": "car",
+            "duration_hours": 5.0,
+            "cost_inr": 5000
+        },
+        {
+            "origin": "Vijayawada",
+            "destination": "Kurnool",
+            "mode": "bus",
+            "duration_hours": 7.5,
+            "cost_inr": 500
+        },
+        {
+            "origin": "Visakhapatnam",
+            "destination": "Araku Valley",
+            "mode": "train",
+            "duration_hours": 4.0,
+            "cost_inr": 120
+        },
+        {
+            "origin": "Visakhapatnam",
+            "destination": "Araku Valley",
+            "mode": "car",
+            "duration_hours": 3.0,
+            "cost_inr": 3500
+        },
+        {
+            "origin": "Visakhapatnam",
+            "destination": "Rajahmundry",
+            "mode": "train",
+            "duration_hours": 3.0,
+            "cost_inr": 150
+        },
+        {
+            "origin": "Visakhapatnam",
+            "destination": "Kakinada",
+            "mode": "bus",
+            "duration_hours": 3.5,
+            "cost_inr": 250
+        },
+        {
+            "origin": "Visakhapatnam",
+            "destination": "Vijayawada",
+            "mode": "train",
+            "duration_hours": 6.5,
+            "cost_inr": 300
+        },
+        {
+            "origin": "Tirupati",
+            "destination": "Gandikota",
+            "mode": "car",
+            "duration_hours": 4.5,
+            "cost_inr": 4000
+        }
+    ],
+    "city_costs": [
+        {
+            "city": "Bengaluru",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 3000,
+            "food_per_day_estimate": 600,
+            "latitude": 12.9716,
+            "longitude": 77.5946
+        },
+        {
+            "city": "Mysore",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 12.2958,
+            "longitude": 76.6394
+        },
+        {
+            "city": "Hampi",
+            "hotel_budget_per_night": 1000,
+            "hotel_midrange_per_night": 2500,
+            "food_per_day_estimate": 500,
+            "latitude": 15.3350,
+            "longitude": 76.4600
+        },
+        {
+            "city": "Coorg",
+            "hotel_budget_per_night": 1500,
+            "hotel_midrange_per_night": 3500,
+            "food_per_day_estimate": 600,
+            "latitude": 12.4244,
+            "longitude": 75.7382
+        },
+        {
+            "city": "Gokarna",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 2400,
+            "food_per_day_estimate": 500,
+            "latitude": 14.5479,
+            "longitude": 74.3188
+        },
+        {
+            "city": "Chikmagalur",
+            "hotel_budget_per_night": 1400,
+            "hotel_midrange_per_night": 3200,
+            "food_per_day_estimate": 550,
+            "latitude": 13.3161,
+            "longitude": 75.7720
+        },
+        {
+            "city": "Mangalore",
+            "hotel_budget_per_night": 1100,
+            "hotel_midrange_per_night": 2600,
+            "food_per_day_estimate": 500,
+            "latitude": 12.9141,
+            "longitude": 74.8560
+        },
+        {
+            "city": "Udupi",
+            "hotel_budget_per_night": 950,
+            "hotel_midrange_per_night": 2300,
+            "food_per_day_estimate": 450,
+            "latitude": 13.3409,
+            "longitude": 74.7421
+        },
+        {
+            "city": "Badami",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2100,
+            "food_per_day_estimate": 400,
+            "latitude": 15.9181,
+            "longitude": 75.6766
+        },
+        {
+            "city": "Dandeli",
+            "hotel_budget_per_night": 1300,
+            "hotel_midrange_per_night": 3000,
+            "food_per_day_estimate": 550,
+            "latitude": 15.2464,
+            "longitude": 74.6212
+        },
+        {
+            "city": "Kabini",
+            "hotel_budget_per_night": 2500,
+            "hotel_midrange_per_night": 6000,
+            "food_per_day_estimate": 800,
+            "latitude": 11.9540,
+            "longitude": 76.2239
+        },
+        {
+            "city": "Murudeshwar",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 14.0940,
+            "longitude": 74.4849
+        },
+        {
+            "city": "Belur",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 400,
+            "latitude": 13.1623,
+            "longitude": 75.8596
+        },
+        {
+            "city": "Halebidu",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 400,
+            "latitude": 13.2131,
+            "longitude": 75.9934
+        },
+        {
+            "city": "Kochi",
+            "hotel_budget_per_night": 1000,
+            "hotel_midrange_per_night": 2500,
+            "food_per_day_estimate": 500,
+            "latitude": 9.9312,
+            "longitude": 76.2673
+        },
+        {
+            "city": "Munnar",
+            "hotel_budget_per_night": 1500,
+            "hotel_midrange_per_night": 3500,
+            "food_per_day_estimate": 500,
+            "latitude": 10.0889,
+            "longitude": 77.0595
+        },
+        {
+            "city": "Alleppey",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 3000,
+            "food_per_day_estimate": 550,
+            "latitude": 9.4981,
+            "longitude": 76.3388
+        },
+        {
+            "city": "Wayanad",
+            "hotel_budget_per_night": 1300,
+            "hotel_midrange_per_night": 2800,
+            "food_per_day_estimate": 500,
+            "latitude": 11.6854,
+            "longitude": 76.1320
+        },
+        {
+            "city": "Varkala",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2600,
+            "food_per_day_estimate": 600,
+            "latitude": 8.7379,
+            "longitude": 76.7163
+        },
+        {
+            "city": "Thiruvananthapuram",
+            "hotel_budget_per_night": 1100,
+            "hotel_midrange_per_night": 2700,
+            "food_per_day_estimate": 500,
+            "latitude": 8.5241,
+            "longitude": 76.9366
+        },
+        {
+            "city": "Kovalam",
+            "hotel_budget_per_night": 1400,
+            "hotel_midrange_per_night": 3500,
+            "food_per_day_estimate": 650,
+            "latitude": 8.4004,
+            "longitude": 76.9787
+        },
+        {
+            "city": "Thekkady",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 2800,
+            "food_per_day_estimate": 500,
+            "latitude": 9.6031,
+            "longitude": 77.1615
+        },
+        {
+            "city": "Kumarakom",
+            "hotel_budget_per_night": 2000,
+            "hotel_midrange_per_night": 5000,
+            "food_per_day_estimate": 700,
+            "latitude": 9.5927,
+            "longitude": 76.4229
+        },
+        {
+            "city": "Athirappilly",
+            "hotel_budget_per_night": 1500,
+            "hotel_midrange_per_night": 3500,
+            "food_per_day_estimate": 550,
+            "latitude": 10.2851,
+            "longitude": 76.5698
+        },
+        {
+            "city": "Kozhikode",
+            "hotel_budget_per_night": 1000,
+            "hotel_midrange_per_night": 2400,
+            "food_per_day_estimate": 500,
+            "latitude": 11.2588,
+            "longitude": 75.7804
+        },
+        {
+            "city": "Chennai",
+            "hotel_budget_per_night": 1300,
+            "hotel_midrange_per_night": 3500,
+            "food_per_day_estimate": 700,
+            "latitude": 13.0827,
+            "longitude": 80.2707
+        },
+        {
+            "city": "Madurai",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 400,
+            "latitude": 9.9252,
+            "longitude": 78.1198
+        },
+        {
+            "city": "Ooty",
+            "hotel_budget_per_night": 1400,
+            "hotel_midrange_per_night": 3200,
+            "food_per_day_estimate": 600,
+            "latitude": 11.4102,
+            "longitude": 76.6950
+        },
+        {
+            "city": "Pondicherry",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 3000,
+            "food_per_day_estimate": 650,
+            "latitude": 11.9416,
+            "longitude": 79.8083
+        },
+        {
+            "city": "Kanyakumari",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 8.0883,
+            "longitude": 77.5385
+        },
+        {
+            "city": "Rameshwaram",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 400,
+            "latitude": 9.2876,
+            "longitude": 79.3129
+        },
+        {
+            "city": "Kodaikanal",
+            "hotel_budget_per_night": 1300,
+            "hotel_midrange_per_night": 3000,
+            "food_per_day_estimate": 550,
+            "latitude": 10.2381,
+            "longitude": 77.4892
+        },
+        {
+            "city": "Mahabalipuram",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 2800,
+            "food_per_day_estimate": 600,
+            "latitude": 12.6269,
+            "longitude": 80.1927
+        },
+        {
+            "city": "Kanchipuram",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2100,
+            "food_per_day_estimate": 450,
+            "latitude": 12.8387,
+            "longitude": 79.7016
+        },
+        {
+            "city": "Tanjore",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 10.7870,
+            "longitude": 79.1378
+        },
+        {
+            "city": "Trichy",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2300,
+            "food_per_day_estimate": 500,
+            "latitude": 10.7905,
+            "longitude": 78.7047
+        },
+        {
+            "city": "Yercaud",
+            "hotel_budget_per_night": 1100,
+            "hotel_midrange_per_night": 2600,
+            "food_per_day_estimate": 500,
+            "latitude": 11.7752,
+            "longitude": 78.2093
+        },
+        {
+            "city": "Coimbatore",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 2700,
+            "food_per_day_estimate": 600,
+            "latitude": 11.0168,
+            "longitude": 76.9558
+        },
+        {
+            "city": "Vellore",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 12.9165,
+            "longitude": 79.1325
+        },
+        {
+            "city": "Visakhapatnam",
+            "hotel_budget_per_night": 1100,
+            "hotel_midrange_per_night": 2800,
+            "food_per_day_estimate": 550,
+            "latitude": 17.6868,
+            "longitude": 83.2185
+        },
+        {
+            "city": "Tirupati",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2100,
+            "food_per_day_estimate": 400,
+            "latitude": 13.6284,
+            "longitude": 79.4192
+        },
+        {
+            "city": "Araku Valley",
+            "hotel_budget_per_night": 1000,
+            "hotel_midrange_per_night": 2400,
+            "food_per_day_estimate": 450,
+            "latitude": 18.3273,
+            "longitude": 82.8775
+        },
+        {
+            "city": "Vijayawada",
+            "hotel_budget_per_night": 1000,
+            "hotel_midrange_per_night": 2500,
+            "food_per_day_estimate": 500,
+            "latitude": 16.5062,
+            "longitude": 80.6480
+        },
+        {
+            "city": "Anantapur",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1900,
+            "food_per_day_estimate": 400,
+            "latitude": 14.6819,
+            "longitude": 77.6006
+        },
+        {
+            "city": "Nellore",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 400,
+            "latitude": 14.4426,
+            "longitude": 79.9865
+        },
+        {
+            "city": "Kurnool",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1900,
+            "food_per_day_estimate": 400,
+            "latitude": 15.8281,
+            "longitude": 78.0373
+        },
+        {
+            "city": "Rajahmundry",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2100,
+            "food_per_day_estimate": 450,
+            "latitude": 17.0005,
+            "longitude": 81.8040
+        },
+        {
+            "city": "Kakinada",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 16.9891,
+            "longitude": 82.2475
+        },
+        {
+            "city": "Guntur",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 450,
+            "latitude": 16.3067,
+            "longitude": 80.4365
+        },
+        {
+            "city": "Srisailam",
+            "hotel_budget_per_night": 1000,
+            "hotel_midrange_per_night": 2400,
+            "food_per_day_estimate": 450,
+            "latitude": 16.0821,
+            "longitude": 78.8681
+        },
+        {
+            "city": "Amaravati",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2300,
+            "food_per_day_estimate": 450,
+            "latitude": 16.5746,
+            "longitude": 80.3575
+        },
+        {
+            "city": "Horsley Hills",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 2800,
+            "food_per_day_estimate": 500,
+            "latitude": 13.6499,
+            "longitude": 78.3986
+        },
+        {
+            "city": "Lepakshi",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 13.8023,
+            "longitude": 77.6067
+        },
+        {
+            "city": "Gandikota",
+            "hotel_budget_per_night": 1100,
+            "hotel_midrange_per_night": 2500,
+            "food_per_day_estimate": 450,
+            "latitude": 14.8143,
+            "longitude": 78.2862
+        },
+        {
+            "city": "Hyderabad",
+            "hotel_budget_per_night": 1200,
+            "hotel_midrange_per_night": 2800,
+            "food_per_day_estimate": 550,
+            "latitude": 17.3850,
+            "longitude": 78.4867
+        },
+        {
+            "city": "Warangal",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 17.9784,
+            "longitude": 79.5941
+        },
+        {
+            "city": "Nagarjuna Sagar",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 16.5828,
+            "longitude": 79.3121
+        },
+        {
+            "city": "Bhadrachalam",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1900,
+            "food_per_day_estimate": 400,
+            "latitude": 17.6721,
+            "longitude": 80.8872
+        },
+        {
+            "city": "Nizamabad",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 18.6725,
+            "longitude": 78.0941
+        },
+        {
+            "city": "Karimnagar",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1900,
+            "food_per_day_estimate": 400,
+            "latitude": 18.4386,
+            "longitude": 79.1288
+        },
+        {
+            "city": "Khammam",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 450,
+            "latitude": 17.2473,
+            "longitude": 80.1514
+        },
+        {
+            "city": "Nalgonda",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 17.0500,
+            "longitude": 79.2700
+        },
+        {
+            "city": "Mahabubnagar",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 16.7300,
+            "longitude": 77.9800
+        },
+        {
+            "city": "Adilabad",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 19.6667,
+            "longitude": 78.5333
+        },
+        {
+            "city": "Medak",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1900,
+            "food_per_day_estimate": 400,
+            "latitude": 18.0300,
+            "longitude": 78.2600
+        },
+        {
+            "city": "Ramagundam",
+            "hotel_budget_per_night": 850,
+            "hotel_midrange_per_night": 2000,
+            "food_per_day_estimate": 450,
+            "latitude": 18.7600,
+            "longitude": 79.4800
+        },
+        {
+            "city": "Yadadri",
+            "hotel_budget_per_night": 900,
+            "hotel_midrange_per_night": 2200,
+            "food_per_day_estimate": 450,
+            "latitude": 17.5276,
+            "longitude": 78.9329
+        },
+        {
+            "city": "Vemulawada",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1900,
+            "food_per_day_estimate": 400,
+            "latitude": 18.4682,
+            "longitude": 78.8711
+        },
+        {
+            "city": "Alampur",
+            "hotel_budget_per_night": 800,
+            "hotel_midrange_per_night": 1800,
+            "food_per_day_estimate": 400,
+            "latitude": 15.8778,
+            "longitude": 78.1364
+        }
+    ]
+}

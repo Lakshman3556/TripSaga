@@ -1,0 +1,129 @@
+{
+    "Hyderabad": [
+        {
+            "name": "Charminar",
+            "category": "attraction",
+            "rating": 4.6,
+            "interest_tags": [
+                "history",
+                "architecture",
+                "monument"
+            ],
+            "description": "An iconic 16th-century mosque and monument featuring four grand arches and minarets. It is located in the heart of the old city of Hyderabad, surrounded by bustling traditional bazaars."
+        },
+        {
+            "name": "Golconda Fort",
+            "category": "attraction",
+            "rating": 4.7,
+            "interest_tags": [
+                "history",
+                "fort",
+                "viewpoint"
+            ],
+            "description": "A historic ruined fort and capital of the Qutb Shahi dynasty. Famous for its acoustic systems, water supply engineering, and the dramatic light and sound show in the evening."
+        },
+        {
+            "name": "Bawarchi Restaurant",
+            "category": "restaurant",
+            "rating": 4.5,
+            "interest_tags": [
+                "biryani",
+                "non-vegetarian",
+                "local-food"
+            ],
+            "description": "World-famous legendary outlet at RTC X Roads, renowned for serving the most authentic, aromatic, and spiced Hyderabadi Mutton and Chicken Biryani."
+        },
+        {
+            "name": "Taj Falaknuma Palace",
+            "category": "hotel",
+            "rating": 4.9,
+            "interest_tags": [
+                "luxury",
+                "palace",
+                "heritage"
+            ],
+            "description": "A spectacular luxury heritage hotel situated on a hill, built in the shape of a scorpion. Formerly the palace of the Nizam, offering royal dining and luxury suites."
+        }
+    ],
+    "Bengaluru": [
+        {
+            "name": "Lalbagh Botanical Garden",
+            "category": "attraction",
+            "rating": 4.5,
+            "interest_tags": [
+                "nature",
+                "park",
+                "botany"
+            ],
+            "description": "An ancient botanical garden established by Hyder Ali, featuring a famous glass house inspired by London's Crystal Palace, a lake, and over 1,000 species of flora."
+        },
+        {
+            "name": "Bangalore Palace",
+            "category": "attraction",
+            "rating": 4.4,
+            "interest_tags": [
+                "history",
+                "royal",
+                "architecture"
+            ],
+            "description": "A majestic royal palace owned by the Mysore Royal family, built in Windsor Castle style with wooden carvings, towers, and historical galleries."
+        },
+        {
+            "name": "MTR (Mavalli Tiffin Room)",
+            "category": "restaurant",
+            "rating": 4.6,
+            "interest_tags": [
+                "vegetarian",
+                "breakfast",
+                "south-indian"
+            ],
+            "description": "A legendary historic eatery near Lalbagh, famous for inventing the Rava Idli and serving traditional ghee-laden Masala Dosas and aromatic filter coffee."
+        },
+        {
+            "name": "The Leela Palace Bengaluru",
+            "category": "hotel",
+            "rating": 4.8,
+            "interest_tags": [
+                "luxury",
+                "modern",
+                "business"
+            ],
+            "description": "A grand luxury hotel inspired by the Royal Palace of Mysore, set in lush gardens, featuring ornate ceilings, high-end fine dining, and deluxe rooms."
+        }
+    ],
+    "Madurai": [
+        {
+            "name": "Meenakshi Amman Temple",
+            "category": "attraction",
+            "rating": 4.9,
+            "interest_tags": [
+                "temples",
+                "spiritual",
+                "architecture"
+            ],
+            "description": "A historic and architectural marvel located on the southern bank of the Vaigai River, featuring 14 magnificent gopurams covered in thousands of colorful stone sculptures."
+        },
+        {
+            "name": "Thirumalai Nayakkar Mahal",
+            "category": "attraction",
+            "rating": 4.4,
+            "interest_tags": [
+                "history",
+                "palace",
+                "royal"
+            ],
+            "description": "A 17th-century palace built by King Thirumalai Nayak, featuring massive white pillars, circular arches, and an evening sound and light show displaying royal history."
+        },
+        {
+            "name": "Murugan Idli Shop",
+            "category": "restaurant",
+            "rating": 4.5,
+            "interest_tags": [
+                "vegetarian",
+                "breakfast",
+                "local-food"
+            ],
+            "description": "Famous local dining spot known for its soft, fluffy idlis, flavorful chutneys, spicy podi, and traditional sweet Jigarthanda drink."
+        }
+    ]
+}
