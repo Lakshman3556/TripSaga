@@ -1,5 +1,5 @@
 import json
-from app.core.llm import get_llm
+from app.core.llm import get_llm, clean_json_response
 from app.agents.state import TripState
 
 def run_planner_agent(state: TripState) -> TripState:
@@ -36,7 +36,8 @@ def run_planner_agent(state: TripState) -> TripState:
             ("user", user_prompt)
         ]
         response = llm.invoke(messages)
-        parsed_plan = json.loads(response.content)
+        cleaned_content = clean_json_response(response.content)
+        parsed_plan = json.loads(cleaned_content)
         
         # Update shared state
         state["task_plan"] = parsed_plan

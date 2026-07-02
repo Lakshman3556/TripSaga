@@ -26,7 +26,8 @@ def get_llm(temperature: float = 0.2, json_mode: bool = False):
             google_api_key=settings.GEMINI_API_KEY,
             model=settings.GEMINI_MODEL,
             temperature=temperature,
-            model_kwargs=model_kwargs
+            model_kwargs=model_kwargs,
+            convert_system_message_to_human=True
         )
         
     elif provider == "groq":
@@ -62,3 +63,19 @@ def get_llm(temperature: float = 0.2, json_mode: bool = False):
             f"Unsupported LLM_PROVIDER: '{provider}'. "
             "Please edit your .env file to choose 'gemini', 'groq', or 'ollama'."
         )
+
+def clean_json_response(content: str) -> str:
+    """
+    Cleans up LLM response strings to extract raw JSON, removing
+    markdown code fences like ```json ... ``` if present.
+    """
+    content = content.strip()
+    if content.startswith("```"):
+        if content.startswith("```json"):
+            content = content[7:]
+        else:
+            content = content[3:]
+        if content.endswith("```"):
+            content = content[:-3]
+    return content.strip()
+

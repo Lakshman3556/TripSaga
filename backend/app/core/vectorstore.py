@@ -79,10 +79,16 @@ def query_places(query_text: str, city: str, category: Optional[str] = None, n_r
     collection = get_collection()
     query_vector = embedding_model.embed_query(query_text)
     
-    # Enforce strict metadata filtering by city
-    where_filter = {"city": city}
+    # Enforce strict metadata filtering by city and category (if provided)
     if category:
-        where_filter["category"] = category
+        where_filter = {
+            "$and": [
+                {"city": {"$eq": city}},
+                {"category": {"$eq": category}}
+            ]
+        }
+    else:
+        where_filter = {"city": city}
         
     results = collection.query(
         query_embeddings=[query_vector],
