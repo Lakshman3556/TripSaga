@@ -18,6 +18,10 @@ class RouteDetail(BaseModel):
     duration_hours: float = Field(..., description="One-way travel duration in hours")
     cost_inr: int = Field(..., description="One-way transport cost in INR")
     route_type: str = Field(..., description="Source of routing logic (direct / fallback)")
+     # Add these three fields:
+    origin_airport: Optional[str] = Field(None, description="Nearest airport name to origin")
+    destination_airport: Optional[str] = Field(None, description="Nearest airport name to destination")
+    warning: Optional[str] = Field(None, description="Any warnings about travel duration or recommendations")
 
 class TripResponse(BaseModel):
     origin: str

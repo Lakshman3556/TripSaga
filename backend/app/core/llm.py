@@ -1,18 +1,35 @@
 from langchain_groq import ChatGroq
-from langchain_ollama import ChatOllama
+from langchain_community.chat_models import ChatOllama
+from langchain_google_genai import ChatGoogleGenerativeAI  # Added Gemini import
 from app.core.config import settings
 
 def get_llm(temperature: float = 0.2, json_mode: bool = False):
     """
-    Model client factory. Returns ChatGroq (fast cloud model) or ChatOllama (free local model).
-    
-    Example Usage:
-        llm = get_llm(temperature=0.3, json_mode=True)
-        response = llm.invoke("Generate a tourist route...")
+    Model client factory. Returns ChatGoogleGenerativeAI, ChatGroq, or ChatOllama.
     """
     provider = settings.LLM_PROVIDER.lower()
     
-    if provider == "groq":
+    if provider == "gemini":
+        # Enforce that Gemini key must exist and not be a placeholder
+        if not settings.GEMINI_API_KEY or "your_actual_gemini" in settings.GEMINI_API_KEY:
+            raise ValueError(
+                "GEMINI_API_KEY is missing or invalid. "
+                "Please configure it in the .env file at the project root."
+            )
+            
+        model_kwargs = {}
+        if json_mode:
+            # Configures Gemini's API to strictly return valid JSON structures
+            model_kwargs = {"response_format": {"type": "json_object"}}
+            
+        return ChatGoogleGenerativeAI(
+            google_api_key=settings.GEMINI_API_KEY,
+            model=settings.GEMINI_MODEL,
+            temperature=temperature,
+            model_kwargs=model_kwargs
+        )
+        
+    elif provider == "groq":
         # Enforce that Groq key must exist
         if not settings.GROQ_API_KEY or "your_groq_key" in settings.GROQ_API_KEY:
             raise ValueError(
@@ -43,5 +60,5 @@ def get_llm(temperature: float = 0.2, json_mode: bool = False):
     else:
         raise ValueError(
             f"Unsupported LLM_PROVIDER: '{provider}'. "
-            "Please edit your .env file to choose 'groq' or 'ollama'."
+            "Please edit your .env file to choose 'gemini', 'groq', or 'ollama'."
         )

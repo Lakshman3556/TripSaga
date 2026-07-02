@@ -11,6 +11,7 @@ langchain==0.1.12
 langchain-core==0.1.33
 langchain-community==0.0.28
 langchain-groq==0.0.1  # For fast LLM inference via Groq
+langchain-google-genai==1.0.1
 
 # --- VECTOR & RELATIONAL DATABASES ---
 chromadb==0.4.24

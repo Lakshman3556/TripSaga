@@ -227,6 +227,17 @@ if trigger_plan:
                         st.markdown(f"<div class='metric-label'>Duration</div><div class='metric-value'>{trip_data['route']['duration_hours']} hrs</div>", unsafe_allow_html=True)
                     
                     st.markdown("<br>", unsafe_allow_html=True)
+                    if trip_data['route']['warning']:
+                        st.warning(f"⚠️ {trip_data['route']['warning']}")
+                    if trip_data['route']['origin_airport'] or trip_data['route']['destination_airport']:
+                        st.markdown("<div style='background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px;'>", unsafe_allow_html=True)
+                        st.markdown("<span style='font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;'>Transit Hubs</span>", unsafe_allow_html=True)
+                        if trip_data['route']['origin_airport']:
+                            st.markdown(f"<p style='margin: 4px 0; font-size: 14px;'>🛫 <b>Origin Airport:</b><br><span style='color: #cbd5e1;'>{trip_data['route']['origin_airport']}</span></p>", unsafe_allow_html=True)
+                        if trip_data['route']['destination_airport']:
+                            st.markdown(f"<p style='margin: 4px 0; font-size: 14px;'>🛬 <b>Destination Airport:</b><br><span style='color: #cbd5e1;'>{trip_data['route']['destination_airport']}</span></p>", unsafe_allow_html=True)
+                        st.markdown("</div>", unsafe_allow_html=True)
+                    # -----------------------------------------------------------------
                     
                     # Cost Metrics
                     st.markdown("<h4>Estimated Budget</h4>", unsafe_allow_html=True)

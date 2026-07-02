@@ -45,7 +45,10 @@ def plan_trip_endpoint(payload: TripRequest):
             mode=result["transport_info"]["mode"],
             duration_hours=result["transport_info"]["duration_hours"],
             cost_inr=result["transport_info"]["cost_inr"],
-            route_type=result["transport_info"]["route_type"]
+            route_type=result["transport_info"]["route_type"],
+             origin_airport=result["transport_info"]["origin_airport"],
+        destination_airport=result["transport_info"]["destination_airport"],
+        warning=result["transport_info"]["warning"]
         )
         
         budget_detail = BudgetDetail(

@@ -13,7 +13,7 @@ class Settings(BaseSettings):
         from app.core.config import settings
         print(settings.LLM_PROVIDER) # Output: 'groq'
     """
-    LLM_PROVIDER: str = "groq"
+    LLM_PROVIDER: str = "gemini"
     GROQ_API_KEY: str = ""
     OPENTRIPMAP_KEY: str = ""
     
@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "llama3"
+
+    GEMINI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-1.5-flash"
+    
 
     class Config:
         # Pydantic configuration to read values from system env if set
