@@ -1,0 +1,22 @@
+# --- FASTAPI & CORE BACKEND ---
+fastapi==0.110.0
+uvicorn==0.28.0
+pydantic==2.6.4
+python-dotenv==1.0.1
+httpx==0.27.0
+pydantic-settings==2.2.1
+# --- MULTI-AGENT STATE MACHINE (LANGGRAPH) & PROMPTING ---
+langgraph==0.0.26
+langchain==0.1.12
+langchain-core==0.1.33
+langchain-community==0.0.28
+langchain-groq==0.0.1  # For fast LLM inference via Groq
+langchain-google-genai==1.0.1
+
+# --- VECTOR & RELATIONAL DATABASES ---
+chromadb==0.4.24
+sentence-transformers==2.5.1  # Runs MiniLM locally (384-dim) for semantic embeddings
+pandas==2.2.1
+
+# --- STREAMLIT FRONTEND ---
+streamlit==1.32.0

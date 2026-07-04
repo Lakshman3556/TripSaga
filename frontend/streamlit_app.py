@@ -1,6 +1,99 @@
 import streamlit as st
 import requests
 import time
+import os
+import sys
+
+# Add project root and backend to python path for local execution / seeding imports
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if PROJECT_ROOT not in sys.path:
+    sys.path.append(PROJECT_ROOT)
+BACKEND_DIR = os.path.join(PROJECT_ROOT, "backend")
+if BACKEND_DIR not in sys.path:
+    sys.path.append(BACKEND_DIR)
+
+# Automatic bootstrapping of databases if missing
+def bootstrap_databases():
+    db_path = os.path.join(PROJECT_ROOT, "backend", "data", "distances.db")
+    chroma_dir = os.path.join(PROJECT_ROOT, "backend", "data", "chroma_store")
+    
+    # 1. Initialize SQLite Database
+    if not os.path.exists(db_path):
+        st.info("📦 First-time setup: Initializing and seeding SQLite distances database...")
+        try:
+            from backend.data.build_transport_db import populate_db
+            populate_db()
+            st.success("✅ Distances database successfully seeded!")
+        except Exception as e:
+            st.error(f"❌ Failed to seed SQLite database: {e}")
+            
+    # 2. Initialize ChromaDB Vector Store
+    if not os.path.exists(chroma_dir) or not os.listdir(chroma_dir):
+        st.info("📦 First-time setup: Indexing Wikivoyage travel information into vector store...")
+        try:
+            from backend.data.ingest_wikivoyage import run_ingestion
+            run_ingestion()
+            st.success("✅ Vector database successfully initialized!")
+        except Exception as e:
+            st.error(f"❌ Failed to seed Vector database: {e}")
+
+bootstrap_databases()
+
+# Helper to run pipeline in-process
+def run_agent_pipeline_locally(request_data):
+    from app.core.guardrails import validate_cities
+    from app.graph.workflow import generate_itinerary
+    
+    is_valid, err_msg = validate_cities(request_data["origin"], request_data["destination"])
+    if not is_valid:
+        raise ValueError(err_msg)
+        
+    inputs = {
+        "origin": request_data["origin"],
+        "destination": request_data["destination"],
+        "days": request_data["days"],
+        "budget": request_data["budget"],
+        "transport_pref": request_data["transport_pref"],
+        "interests": request_data["interests"]
+    }
+    
+    result = generate_itinerary(inputs)
+    
+    if result.get("errors") and any("failed" in err.lower() for err in result["errors"]):
+        raise RuntimeError(f"Agent workflow failed: {', '.join(result['errors'])}")
+        
+    # Construct same dict layout that FastAPI returns
+    trip_data = {
+        "origin": result["origin"],
+        "destination": result["destination"],
+        "days": result["days"],
+        "budget_limit": result.get("budget"),
+        "route": {
+            "mode": result["transport_info"]["mode"],
+            "duration_hours": result["transport_info"]["duration_hours"],
+            "cost_inr": result["transport_info"]["cost_inr"],
+            "route_type": result["transport_info"]["route_type"],
+            "origin_airport": result["transport_info"]["origin_airport"],
+            "destination_airport": result["transport_info"]["destination_airport"],
+            "warning": result["transport_info"]["warning"]
+        },
+        "budget_breakdown": {
+            "transport_cost": result["budget_breakdown"]["transport_cost"],
+            "hotel_cost": result["budget_breakdown"]["hotel_cost"],
+            "food_cost": result["budget_breakdown"]["food_cost"],
+            "total_cost": result["budget_breakdown"]["total_cost"]
+        },
+        "itinerary": {
+            day: {
+                "morning": plan["morning"],
+                "afternoon": plan["afternoon"],
+                "evening": plan["evening"],
+                "meals": plan["meals"]
+            } for day, plan in result["final_itinerary"].items()
+        },
+        "review_notes": result.get("errors", [])
+    }
+    return trip_data
 
 # 1. Setup Page Configurations
 st.set_page_config(
@@ -202,109 +295,126 @@ if trigger_plan:
         
         st.write("🛡️ [Reviewer Agent]: Verifying timeline boundaries and checking budget limits...")
         
-        # Trigger actual backend API call
+        # Trigger plan generation (API client or Local Agent fallback)
         try:
-            response = requests.post("http://127.0.0.1:8000/api/plan", json=request_data, timeout=60.0)
+            backend_url = os.environ.get("TRIPSAGE_BACKEND_URL", "http://127.0.0.1:8000")
+            use_remote = False
             
-            if response.status_code == 200:
-                trip_data = response.json()
-                status_indicator.update(label="✨ Itinerary generated successfully!", state="complete", expanded=False)
+            if backend_url:
+                try:
+                    # Quick health check to see if remote API is active
+                    health_check_url = backend_url.rstrip("/") + "/"
+                    r = requests.get(health_check_url, timeout=1.5)
+                    if r.status_code == 200:
+                        use_remote = True
+                except Exception:
+                    pass
+            
+            if use_remote:
+                st.write(f"🌐 Querying backend API at {backend_url}...")
+                response = requests.post(f"{backend_url.rstrip('/')}/api/plan", json=request_data, timeout=60.0)
+                if response.status_code == 200:
+                    trip_data = response.json()
+                else:
+                    err_detail = response.json().get("detail", "Unknown server error.")
+                    raise RuntimeError(f"API returned error: {err_detail}")
+            else:
+                st.write("🔌 Running agent workflow in-process...")
+                trip_data = run_agent_pipeline_locally(request_data)
                 
-                # --- RENDER RESULTS IN MAIN SECTION ---
-                col1, col2 = st.columns([1, 2], gap="large")
+            status_indicator.update(label="✨ Itinerary generated successfully!", state="complete", expanded=False)
+            
+            # --- RENDER RESULTS IN MAIN SECTION ---
+            col1, col2 = st.columns([1, 2], gap="large")
+            
+            # Column 1: Transport and Budget Glassmorphic Details Card
+            with col1:
+                st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+                st.markdown(f"<h3>Route & Logistics</h3>", unsafe_allow_html=True)
+                st.markdown(f"<p style='color: #94a3b8;'>Traveling from <b>{trip_data['origin']}</b> to <b>{trip_data['destination']}</b></p>", unsafe_allow_html=True)
                 
-                # Column 1: Transport and Budget Glassmorphic Details Card
-                with col1:
-                    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-                    st.markdown(f"<h3>Route & Logistics</h3>", unsafe_allow_html=True)
-                    st.markdown(f"<p style='color: #94a3b8;'>Traveling from <b>{trip_data['origin']}</b> to <b>{trip_data['destination']}</b></p>", unsafe_allow_html=True)
+                # Transit Metrics
+                metric_cols = st.columns(2)
+                with metric_cols[0]:
+                    st.markdown(f"<div class='metric-label'>Transport Mode</div><div class='metric-value'>{trip_data['route']['mode'].title()}</div>", unsafe_allow_html=True)
+                with metric_cols[1]:
+                    st.markdown(f"<div class='metric-label'>Duration</div><div class='metric-value'>{trip_data['route']['duration_hours']} hrs</div>", unsafe_allow_html=True)
+                
+                st.markdown("<br>", unsafe_allow_html=True)
+                if trip_data['route']['warning']:
+                    st.warning(f"⚠️ {trip_data['route']['warning']}")
+                if trip_data['route']['origin_airport'] or trip_data['route']['destination_airport']:
+                    st.markdown("<div style='background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px;'>", unsafe_allow_html=True)
+                    st.markdown("<span style='font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;'>Transit Hubs</span>", unsafe_allow_html=True)
+                    if trip_data['route']['origin_airport']:
+                        st.markdown(f"<p style='margin: 4px 0; font-size: 14px;'>🛫 <b>Origin Airport:</b><br><span style='color: #cbd5e1;'>{trip_data['route']['origin_airport']}</span></p>", unsafe_allow_html=True)
+                    if trip_data['route']['destination_airport']:
+                        st.markdown(f"<p style='margin: 4px 0; font-size: 14px;'>🛬 <b>Destination Airport:</b><br><span style='color: #cbd5e1;'>{trip_data['route']['destination_airport']}</span></p>", unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
+                # -----------------------------------------------------------------
+                
+                # Cost Metrics
+                st.markdown("<h4>Estimated Budget</h4>", unsafe_allow_html=True)
+                st.markdown(f"<p class='metric-label'>Hotel Stay (Total)</p><p class='metric-value' style='font-size:24px; color:#818cf8;'>₹{trip_data['budget_breakdown']['hotel_cost']}</p>", unsafe_allow_html=True)
+                st.markdown(f"<p class='metric-label'>Transport (Roundtrip)</p><p class='metric-value' style='font-size:24px; color:#818cf8;'>₹{trip_data['budget_breakdown']['transport_cost']}</p>", unsafe_allow_html=True)
+                st.markdown(f"<p class='metric-label'>Food (Total)</p><p class='metric-value' style='font-size:24px; color:#818cf8;'>₹{trip_data['budget_breakdown']['food_cost']}</p>", unsafe_allow_html=True)
+                st.markdown("---")
+                st.markdown(f"<p class='metric-label'>Total Estimate</p><p class='metric-value' style='font-size:32px; color:#10b981;'>₹{trip_data['budget_breakdown']['total_cost']}</p>", unsafe_allow_html=True)
+                
+                # Display budget check indicator
+                if trip_data['budget_limit']:
+                    if trip_data['budget_breakdown']['total_cost'] <= trip_data['budget_limit']:
+                        st.success("✅ Within your budget limit!")
+                    else:
+                        st.warning("⚠️ Exceeds your budget limit!")
+                
+                # Display reviewer guardrail adjustments notes
+                if trip_data['review_notes']:
+                    st.markdown("<br><b>Reviewer Adjustments:</b>", unsafe_allow_html=True)
+                    for note in trip_data['review_notes']:
+                        st.info(f"💡 {note}")
+                
+                st.markdown("</div>", unsafe_allow_html=True)
+            
+            # Column 2: Interactive Day-wise Timeline rendering
+            with col2:
+                st.markdown("<h3 style='margin-bottom:20px;'>Your Personalized Timeline</h3>", unsafe_allow_html=True)
+                
+                # Sort days sequentially
+                sorted_days = sorted(trip_data['itinerary'].keys(), key=lambda x: int(x.split()[1]))
+                
+                for day_key in sorted_days:
+                    day_plan = trip_data['itinerary'][day_key]
                     
-                    # Transit Metrics
-                    metric_cols = st.columns(2)
-                    with metric_cols[0]:
-                        st.markdown(f"<div class='metric-label'>Transport Mode</div><div class='metric-value'>{trip_data['route']['mode'].title()}</div>", unsafe_allow_html=True)
-                    with metric_cols[1]:
-                        st.markdown(f"<div class='metric-label'>Duration</div><div class='metric-value'>{trip_data['route']['duration_hours']} hrs</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div class='glass-card'>", unsafe_allow_html=True)
+                    st.markdown(f"<h3 style='color:#818cf8; margin-bottom:15px;'>{day_key}</h3>", unsafe_allow_html=True)
                     
-                    st.markdown("<br>", unsafe_allow_html=True)
-                    if trip_data['route']['warning']:
-                        st.warning(f"⚠️ {trip_data['route']['warning']}")
-                    if trip_data['route']['origin_airport'] or trip_data['route']['destination_airport']:
-                        st.markdown("<div style='background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px;'>", unsafe_allow_html=True)
-                        st.markdown("<span style='font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;'>Transit Hubs</span>", unsafe_allow_html=True)
-                        if trip_data['route']['origin_airport']:
-                            st.markdown(f"<p style='margin: 4px 0; font-size: 14px;'>🛫 <b>Origin Airport:</b><br><span style='color: #cbd5e1;'>{trip_data['route']['origin_airport']}</span></p>", unsafe_allow_html=True)
-                        if trip_data['route']['destination_airport']:
-                            st.markdown(f"<p style='margin: 4px 0; font-size: 14px;'>🛬 <b>Destination Airport:</b><br><span style='color: #cbd5e1;'>{trip_data['route']['destination_airport']}</span></p>", unsafe_allow_html=True)
-                        st.markdown("</div>", unsafe_allow_html=True)
-                    # -----------------------------------------------------------------
+                    # Morning activity
+                    st.markdown("<div class='timeline-node'>", unsafe_allow_html=True)
+                    st.markdown(f"<b>🌅 Morning</b><br><span style='color:#cbd5e1;'>{day_plan['morning']}</span>", unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
                     
-                    # Cost Metrics
-                    st.markdown("<h4>Estimated Budget</h4>", unsafe_allow_html=True)
-                    st.markdown(f"<p class='metric-label'>Hotel Stay (Total)</p><p class='metric-value' style='font-size:24px; color:#818cf8;'>₹{trip_data['budget_breakdown']['hotel_cost']}</p>", unsafe_allow_html=True)
-                    st.markdown(f"<p class='metric-label'>Transport (Roundtrip)</p><p class='metric-value' style='font-size:24px; color:#818cf8;'>₹{trip_data['budget_breakdown']['transport_cost']}</p>", unsafe_allow_html=True)
-                    st.markdown(f"<p class='metric-label'>Food (Total)</p><p class='metric-value' style='font-size:24px; color:#818cf8;'>₹{trip_data['budget_breakdown']['food_cost']}</p>", unsafe_allow_html=True)
-                    st.markdown("---")
-                    st.markdown(f"<p class='metric-label'>Total Estimate</p><p class='metric-value' style='font-size:32px; color:#10b981;'>₹{trip_data['budget_breakdown']['total_cost']}</p>", unsafe_allow_html=True)
+                    # Afternoon activity
+                    st.markdown("<div class='timeline-node'>", unsafe_allow_html=True)
+                    st.markdown(f"<b>☀️ Afternoon</b><br><span style='color:#cbd5e1;'>{day_plan['afternoon']}</span>", unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
                     
-                    # Display budget check indicator
-                    if trip_data['budget_limit']:
-                        if trip_data['budget_breakdown']['total_cost'] <= trip_data['budget_limit']:
-                            st.success("✅ Within your budget limit!")
-                        else:
-                            st.warning("⚠️ Exceeds your budget limit!")
+                    # Evening activity
+                    st.markdown("<div class='timeline-node'>", unsafe_allow_html=True)
+                    st.markdown(f"<b>🌙 Evening</b><br><span style='color:#cbd5e1;'>{day_plan['evening']}</span>", unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
                     
-                    # Display reviewer guardrail adjustments notes
-                    if trip_data['review_notes']:
-                        st.markdown("<br><b>Reviewer Adjustments:</b>", unsafe_allow_html=True)
-                        for note in trip_data['review_notes']:
-                            st.info(f"💡 {note}")
+                    # Culinary stops
+                    st.markdown("<div class='timeline-node' style='border-left:none; padding-left:12px; margin-left:12px;'>", unsafe_allow_html=True)
+                    st.markdown(f"<b>🍽️ Local Eats</b>", unsafe_allow_html=True)
+                    for meal_type, recommendation in day_plan['meals'].items():
+                        st.markdown(f"<span style='color:#94a3b8; font-size:13px;'>• <i>{meal_type.title()}</i>: {recommendation}</span>", unsafe_allow_html=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
                     
                     st.markdown("</div>", unsafe_allow_html=True)
-                
-                # Column 2: Interactive Day-wise Timeline rendering
-                with col2:
-                    st.markdown("<h3 style='margin-bottom:20px;'>Your Personalized Timeline</h3>", unsafe_allow_html=True)
-                    
-                    # Sort days sequentially
-                    sorted_days = sorted(trip_data['itinerary'].keys(), key=lambda x: int(x.split()[1]))
-                    
-                    for day_key in sorted_days:
-                        day_plan = trip_data['itinerary'][day_key]
-                        
-                        st.markdown(f"<div class='glass-card'>", unsafe_allow_html=True)
-                        st.markdown(f"<h3 style='color:#818cf8; margin-bottom:15px;'>{day_key}</h3>", unsafe_allow_html=True)
-                        
-                        # Morning activity
-                        st.markdown("<div class='timeline-node'>", unsafe_allow_html=True)
-                        st.markdown(f"<b>🌅 Morning</b><br><span style='color:#cbd5e1;'>{day_plan['morning']}</span>", unsafe_allow_html=True)
-                        st.markdown("</div>", unsafe_allow_html=True)
-                        
-                        # Afternoon activity
-                        st.markdown("<div class='timeline-node'>", unsafe_allow_html=True)
-                        st.markdown(f"<b>☀️ Afternoon</b><br><span style='color:#cbd5e1;'>{day_plan['afternoon']}</span>", unsafe_allow_html=True)
-                        st.markdown("</div>", unsafe_allow_html=True)
-                        
-                        # Evening activity
-                        st.markdown("<div class='timeline-node'>", unsafe_allow_html=True)
-                        st.markdown(f"<b>🌙 Evening</b><br><span style='color:#cbd5e1;'>{day_plan['evening']}</span>", unsafe_allow_html=True)
-                        st.markdown("</div>", unsafe_allow_html=True)
-                        
-                        # Culinary stops
-                        st.markdown("<div class='timeline-node' style='border-left:none; padding-left:12px; margin-left:12px;'>", unsafe_allow_html=True)
-                        st.markdown(f"<b>🍽️ Local Eats</b>", unsafe_allow_html=True)
-                        for meal_type, recommendation in day_plan['meals'].items():
-                            st.markdown(f"<span style='color:#94a3b8; font-size:13px;'>• <i>{meal_type.title()}</i>: {recommendation}</span>", unsafe_allow_html=True)
-                        st.markdown("</div>", unsafe_allow_html=True)
-                        
-                        st.markdown("</div>", unsafe_allow_html=True)
-            else:
-                err_detail = response.json().get("detail", "Unknown server error.")
-                status_indicator.update(label="❌ Generation failed!", state="error")
-                st.error(f"Error matching request: {err_detail}")
-        except Exception as conn_err:
+        except Exception as run_err:
             status_indicator.update(label="❌ Generation failed!", state="error")
-            st.error(f"Could not connect to FastAPI server. Please check if the backend is running! Error: {conn_err}")
+            st.error(f"Failed to generate trip plan: {run_err}")
 else:
     # Display a beautiful splash page/placeholder card when the user hasn't generated anything yet
     st.markdown("<div class='glass-card' style='text-align: center; max-width: 700px; margin: 40px auto; padding: 40px;'>", unsafe_allow_html=True)
